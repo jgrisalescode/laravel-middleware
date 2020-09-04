@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Protecting an route
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('auth');
+
+// Protectig all routes of this controller
+Route::resource('users', 'UserController')->middleware('auth');
